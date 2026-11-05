@@ -1,4 +1,4 @@
-$ docker build -t workshop-web:1.0 .
+$ docker build --progress=plain -t workshop-web:1.0 .
 #0 building with "desktop-linux" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
@@ -6,183 +6,71 @@ $ docker build -t workshop-web:1.0 .
 #1 DONE 0.0s
 
 #2 [internal] load metadata for docker.io/library/nginx:stable-alpine
-#2 ...
+#2 DONE 0.0s
 
-#3 [auth] library/nginx:pull token for registry-1.docker.io
+#3 [internal] load .dockerignore
+#3 transferring context: 146B done
 #3 DONE 0.0s
 
-#2 [internal] load metadata for docker.io/library/nginx:stable-alpine
-#2 DONE 2.3s
-
-#4 [internal] load .dockerignore
-#4 transferring context: 127B done
+#4 [internal] load build context
+#4 transferring context: 60B done
 #4 DONE 0.0s
 
-#5 [internal] load build context
-#5 transferring context: 83B done
+#5 [1/2] FROM docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949
+#5 resolve docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949 done
 #5 DONE 0.0s
 
-#6 [1/2] FROM docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949
-#6 resolve docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949 0.0s done
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 0B / 19.86MB 0.2s
-#6 sha256:cd5ae81ea1c7cd39693d9451176a717fb7b3dbb5588b3eb8c2f28f4517ac8941 0B / 1.40kB 0.2s
-#6 sha256:29fdff62bf433f4391a2e27b3938e1eb083c12d2403ecb06062e62405929d454 0B / 1.21kB 0.2s
-#6 sha256:0750db6b002e7d071b429e51d22c08a1ee7598ac4dc725a79dbb9985f85f467f 0B / 963B 0.2s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 1.05MB / 19.86MB 0.5s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 3.15MB / 19.86MB 0.6s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 4.19MB / 19.86MB 0.8s
-#6 sha256:cd5ae81ea1c7cd39693d9451176a717fb7b3dbb5588b3eb8c2f28f4517ac8941 1.40kB / 1.40kB 0.6s done
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 6.29MB / 19.86MB 0.9s
-#6 sha256:29fdff62bf433f4391a2e27b3938e1eb083c12d2403ecb06062e62405929d454 1.21kB / 1.21kB 0.8s done
-#6 sha256:0750db6b002e7d071b429e51d22c08a1ee7598ac4dc725a79dbb9985f85f467f 963B / 963B 0.8s done
-#6 sha256:e10bb963239e76f8e01f42977cf9adc2a56c34afd6b932f52e4b37f723ea6ea3 0B / 404B 0.2s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 7.34MB / 19.86MB 1.1s
-#6 sha256:e10bb963239e76f8e01f42977cf9adc2a56c34afd6b932f52e4b37f723ea6ea3 404B / 404B 0.3s done
-#6 sha256:87319ffcbc38f43c3b1b33cac15895c5d807a8c8907d8bb6068e25435f59c8db 0B / 627B 0.2s
-#6 sha256:872998b8576e5aa2dd875c0a156f30bb6bc2573fddce2652fce6884a9893952d 0B / 1.90MB 0.2s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 9.44MB / 19.86MB 1.2s
-#6 sha256:87319ffcbc38f43c3b1b33cac15895c5d807a8c8907d8bb6068e25435f59c8db 627B / 627B 0.3s done
-#6 sha256:d3531b7a4f217bdc3426c57bcff84c170f086f456a39689d4a615c6d026c4be0 0B / 4.19MB 0.2s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 10.49MB / 19.86MB 1.4s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 11.53MB / 19.86MB 1.5s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 12.58MB / 19.86MB 1.7s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 13.63MB / 19.86MB 1.8s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 14.68MB / 19.86MB 2.1s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 15.73MB / 19.86MB 2.3s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 16.78MB / 19.86MB 2.6s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 17.83MB / 19.86MB 2.7s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 18.87MB / 19.86MB 3.0s
-#6 sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 19.86MB / 19.86MB 3.1s done
-#6 sha256:872998b8576e5aa2dd875c0a156f30bb6bc2573fddce2652fce6884a9893952d 1.05MB / 1.90MB 2.9s
-#6 sha256:d3531b7a4f217bdc3426c57bcff84c170f086f456a39689d4a615c6d026c4be0 1.05MB / 4.19MB 2.9s
-#6 sha256:872998b8576e5aa2dd875c0a156f30bb6bc2573fddce2652fce6884a9893952d 1.90MB / 1.90MB 3.5s done
-#6 sha256:d3531b7a4f217bdc3426c57bcff84c170f086f456a39689d4a615c6d026c4be0 1.98MB / 4.19MB 3.5s
-#6 sha256:d3531b7a4f217bdc3426c57bcff84c170f086f456a39689d4a615c6d026c4be0 3.15MB / 4.19MB 4.1s
-#6 sha256:d3531b7a4f217bdc3426c57bcff84c170f086f456a39689d4a615c6d026c4be0 4.19MB / 4.19MB 4.4s
-#6 sha256:d3531b7a4f217bdc3426c57bcff84c170f086f456a39689d4a615c6d026c4be0 4.19MB / 4.19MB 4.4s done
-#6 extracting sha256:d3531b7a4f217bdc3426c57bcff84c170f086f456a39689d4a615c6d026c4be0 0.1s done
-#6 extracting sha256:872998b8576e5aa2dd875c0a156f30bb6bc2573fddce2652fce6884a9893952d 0.1s done
-#6 DONE 5.5s
+#6 [2/2] COPY site/ /usr/share/nginx/html/
+#6 CACHED
 
-#6 [1/2] FROM docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949
-#6 extracting sha256:87319ffcbc38f43c3b1b33cac15895c5d807a8c8907d8bb6068e25435f59c8db done
-#6 extracting sha256:0750db6b002e7d071b429e51d22c08a1ee7598ac4dc725a79dbb9985f85f467f done
-#6 extracting sha256:e10bb963239e76f8e01f42977cf9adc2a56c34afd6b932f52e4b37f723ea6ea3 done
-#6 extracting sha256:29fdff62bf433f4391a2e27b3938e1eb083c12d2403ecb06062e62405929d454 done
-#6 extracting sha256:cd5ae81ea1c7cd39693d9451176a717fb7b3dbb5588b3eb8c2f28f4517ac8941 done
-#6 extracting sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5
-#6 extracting sha256:0ecf77f7365c28357ffc7e5dc1e72d8a361ed5c62d47e46354757f57f3bc76f5 0.3s done
-#6 DONE 5.8s
-
-#7 [2/2] COPY site/ /usr/share/nginx/html/
-#7 DONE 0.1s
-
-#8 exporting to image
-#8 exporting layers 0.0s done
-#8 exporting manifest sha256:898624617f999c45435e14cfd486a2046390964d2867eb7e860dda8c56e346b4 done
-#8 exporting config sha256:bf0beb4ab12726f8299c7c0ebee97ca07f503eb7ee9d1db46835b9a3e24f8818 done
-#8 exporting attestation manifest sha256:48b6165dd5bd8f4cbb6d2d051a01ff6f36721d4d2970e73cfd358516759d489c done
-#8 exporting manifest list sha256:ac18b7abc856c2f54018b42523f6dceda18226faebca48e7e1aaf890dea0a8f4 done
-#8 naming to docker.io/library/workshop-web:1.0 done
-#8 unpacking to docker.io/library/workshop-web:1.0 done
-#8 DONE 0.1s
-$ docker images
-IMAGE                                                                                                   ID             DISK USAGE   CONTENT SIZE   EXTRA
-42doji/sojaeham:latest                                                                                  df8c57075c0e        311MB         76.8MB        
-42doji/sprite_getter:latest                                                                             7f6bfd1bd896        340MB         78.1MB        
-42doji/spritedeck:latest                                                                                1a331bc412d7        340MB         78.1MB        
-42doji/travel-agent:latest                                                                              607310c34430        281MB         62.1MB   U    
-42doji/travel_agent:latest                                                                              5ae4075289cd        281MB         62.1MB   U    
-barichello/godot-ci:4.7.2                                                                               cdcca31e9194        7.8GB         2.58GB        
-clickhouse/clickhouse-server:26.3                                                                       843f94faf48c       1.11GB          252MB   U    
-docker:28-cli                                                                                           625d9431a9f5        291MB         75.7MB        
-dolthub/dolt-sql-server@sha256:baf9449a54dc6572dc5d688386e6f45ecb9f76e5bc4869be429f450b90ffecb0         baf9449a54dc        441MB          106MB        
-dotteda/prompt-manager:latest                                                                           29b7709e567f        233MB         50.5MB   U    
-ghcr.io/danny-avila/librechat@sha256:c5db3331b845e1f289f8d04c0c77936c4bbe372f76730a804abc1c37e44d23a9   c5db3331b845       3.79GB          865MB   U    
-ghcr.io/ferretdb/ferretdb:2.7.0                                                                         5706414241eb       53.6MB         17.7MB        
-ghcr.io/openhands/agent-canvas:1.27.1                                                                   91b7a217dcbe       5.37GB         1.37GB        
-gitea.doji.synology.me/jitendo/genre-atlas:2026-07-25                                                   c40216da2a6c       77.4MB         22.2MB   U    
-gitea.doji.synology.me/jitendo/genre-atlas:latest                                                       f5d9e44f0d05        153MB         43.5MB        
-gitea.doji.synology.me/jitendo/spritedeck:latest                                                        1a83c4cd7ea1        340MB         78.1MB        
-gitea/gitea:28.1.0                                                                                      f505a0d3a413        262MB         69.2MB   U    
-hello-world:latest                                                                                      c567b231f656       22.6kB         10.3kB        
-lunch-party:latest                                                                                      b6474657988e        931MB          204MB        
-moby/buildkit:buildx-stable-1                                                                           2f5adac4ecd1        348MB          105MB   U    
-mongo@sha256:098862b1339f031900ca66cf8fef799e616d6324fa41b9a263f2ec899552c1ef                           098862b1339f       1.26GB          302MB   U    
-nginx@sha256:959ae6b898852db82e5b29b929388e59914f42be0a8f4d44c89a4c1f53b49208                           959ae6b89885        101MB         28.5MB        
-prompt-manager:latest                                                                                   73bd69858846        233MB         50.5MB   U    
-rr-mame:0.264                                                                                           e554a3af23b5       1.48GB          326MB        
-spritedeck:latest                                                                                       980299389998        340MB         78.1MB   U    
-temporalio/temporal:latest                                                                              ad4c82c97bd1        204MB         45.8MB   U    
-workshop-web:1.0                                                                                        ac18b7abc856       92.2MB           26MB        
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:898624617f999c45435e14cfd486a2046390964d2867eb7e860dda8c56e346b4 done
+#7 exporting config sha256:bf0beb4ab12726f8299c7c0ebee97ca07f503eb7ee9d1db46835b9a3e24f8818 done
+#7 exporting attestation manifest sha256:6183c7743bb67ce4dd4619034a211fab8d057f63f935157a3df222c9ceac5ae5 done
+#7 exporting manifest list sha256:0ef51760bbd06e2e574a5d5adc2208f072532d313b537e93366c73e7c42b7bc2 done
+#7 naming to docker.io/library/workshop-web:1.0 done
+#7 unpacking to docker.io/library/workshop-web:1.0 done
+#7 DONE 0.0s
+$ docker images workshop-web:1.0
+IMAGE              ID             DISK USAGE   CONTENT SIZE   EXTRA
+workshop-web:1.0   0ef51760bbd0       92.2MB           26MB        
+$ docker inspect --format "{{index .Config.Labels \"org.opencontainers.image.title\"}}" workshop-web:1.0
+dev-workstation
 $ docker run -d --name workshop-web-8080 -p 127.0.0.1:8080:80 workshop-web:1.0
-52ac1d01c75fbf4ee50083b86585864af833406b386a11e6a09d3bfaf64b2031
+ca8603044eaa1cb06a62c3457ad4e5da2655383bff6c6a1bcffba4025cb6fff6
 $ docker run -d --name workshop-web-8081 -p 127.0.0.1:8081:80 workshop-web:1.0
-a0d1d7260358d275e3c63c281a8c134eeb0b96685d696e7ca7c0bc8fae55e57e
-$ docker ps
-CONTAINER ID   IMAGE                           COMMAND                  CREATED              STATUS                PORTS                                       NAMES
-a0d1d7260358   workshop-web:1.0                "/docker-entrypoint.…"   10 seconds ago       Up 9 seconds          127.0.0.1:8081->80/tcp                      workshop-web-8081
-52ac1d01c75f   workshop-web:1.0                "/docker-entrypoint.…"   About a minute ago   Up About a minute     127.0.0.1:8080->80/tcp                      workshop-web-8080
-570d811bc4a3   moby/buildkit:buildx-stable-1   "/usr/bin/buildkitd-…"   3 months ago         Up 6 days                                                         buildx_buildkit_genre-atlas0
-cff42101bae5   c40216da2a6c                    "/docker-entrypoint.…"   3 months ago         Up 6 days (healthy)   0.0.0.0:12835->80/tcp, [::]:12835->80/tcp   genre-atlas
-$ docker images
-IMAGE                                                                                                   ID             DISK USAGE   CONTENT SIZE   EXTRA
-42doji/sojaeham:latest                                                                                  df8c57075c0e        311MB         76.8MB        
-42doji/sprite_getter:latest                                                                             7f6bfd1bd896        340MB         78.1MB        
-42doji/spritedeck:latest                                                                                1a331bc412d7        340MB         78.1MB        
-42doji/travel-agent:latest                                                                              607310c34430        281MB         62.1MB   U    
-42doji/travel_agent:latest                                                                              5ae4075289cd        281MB         62.1MB   U    
-barichello/godot-ci:4.7.2                                                                               cdcca31e9194        7.8GB         2.58GB        
-clickhouse/clickhouse-server:26.3                                                                       843f94faf48c       1.11GB          252MB   U    
-docker:28-cli                                                                                           625d9431a9f5        291MB         75.7MB        
-dolthub/dolt-sql-server@sha256:baf9449a54dc6572dc5d688386e6f45ecb9f76e5bc4869be429f450b90ffecb0         baf9449a54dc        441MB          106MB        
-dotteda/prompt-manager:latest                                                                           29b7709e567f        233MB         50.5MB   U    
-ghcr.io/danny-avila/librechat@sha256:c5db3331b845e1f289f8d04c0c77936c4bbe372f76730a804abc1c37e44d23a9   c5db3331b845       3.79GB          865MB   U    
-ghcr.io/ferretdb/ferretdb:2.7.0                                                                         5706414241eb       53.6MB         17.7MB        
-ghcr.io/openhands/agent-canvas:1.27.1                                                                   91b7a217dcbe       5.37GB         1.37GB        
-gitea.doji.synology.me/jitendo/genre-atlas:2026-07-25                                                   c40216da2a6c       77.4MB         22.2MB   U    
-gitea.doji.synology.me/jitendo/genre-atlas:latest                                                       f5d9e44f0d05        153MB         43.5MB        
-gitea.doji.synology.me/jitendo/spritedeck:latest                                                        1a83c4cd7ea1        340MB         78.1MB        
-gitea/gitea:28.1.0                                                                                      f505a0d3a413        262MB         69.2MB   U    
-hello-world:latest                                                                                      c567b231f656       22.6kB         10.3kB        
-lunch-party:latest                                                                                      b6474657988e        931MB          204MB        
-moby/buildkit:buildx-stable-1                                                                           2f5adac4ecd1        348MB          105MB   U    
-mongo@sha256:098862b1339f031900ca66cf8fef799e616d6324fa41b9a263f2ec899552c1ef                           098862b1339f       1.26GB          302MB   U    
-nginx@sha256:959ae6b898852db82e5b29b929388e59914f42be0a8f4d44c89a4c1f53b49208                           959ae6b89885        101MB         28.5MB        
-prompt-manager:latest                                                                                   73bd69858846        233MB         50.5MB   U    
-rr-mame:0.264                                                                                           e554a3af23b5       1.48GB          326MB        
-spritedeck:latest                                                                                       980299389998        340MB         78.1MB   U    
-temporalio/temporal:latest                                                                              ad4c82c97bd1        204MB         45.8MB   U    
-workshop-web:1.0                                                                                        ac18b7abc856       92.2MB           26MB   U    
-$ docker ps -a
-CONTAINER ID   IMAGE                                  COMMAND                  CREATED              STATUS                      PORTS                                              NAMES
-6426139f042a   workshop-web:1.0                       "/docker-entrypoint.…"   About a minute ago   Up About a minute           127.0.0.1:8082->80/tcp                             workshop-bind
-a0d1d7260358   workshop-web:1.0                       "/docker-entrypoint.…"   2 minutes ago        Up 2 minutes                127.0.0.1:8081->80/tcp                             workshop-web-8081
-52ac1d01c75f   workshop-web:1.0                       "/docker-entrypoint.…"   3 minutes ago        Up 3 minutes                127.0.0.1:8080->80/tcp                             workshop-web-8080
-304c42614473   temporalio/temporal:latest             "temporal server sta…"   8 days ago           Exited (137) 6 days ago                                                        temporal-poc
-8e0b2e76af66   ghcr.io/danny-avila/librechat:v0.8.7   "docker-entrypoint.s…"   8 days ago           Exited (137) 6 days ago                                                        ai-infra-chat-librechat-1
-47585a04f438   mongo:8.0.20                           "docker-entrypoint.s…"   8 days ago           Exited (0) 6 days ago                                                          ai-infra-chat-mongodb-1
-8ea89e0240b5   clickhouse/clickhouse-server:26.3      "/entrypoint.sh"         9 days ago           Exited (137) 6 days ago                                                        nhx-intake-clickhouse-02c3919b8de2
-03a52c86781e   gitea/gitea:28.1.0                     "/usr/bin/entrypoint…"   2 weeks ago          Exited (255) 2 weeks ago    127.0.0.1:2222->22/tcp, 127.0.0.1:3300->3000/tcp   ai-infra-poc-gitea
-07302752e30e   clickhouse/clickhouse-server:26.3      "/entrypoint.sh"         4 weeks ago          Exited (137) 4 weeks ago                                                       nmp-intake-clickhouse-02c3919b8de2
-570d811bc4a3   moby/buildkit:buildx-stable-1          "/usr/bin/buildkitd-…"   3 months ago         Up 6 days                                                                      buildx_buildkit_genre-atlas0
-cff42101bae5   c40216da2a6c                           "/docker-entrypoint.…"   3 months ago         Up 6 days (healthy)         0.0.0.0:12835->80/tcp, [::]:12835->80/tcp          genre-atlas
-475b107b0acc   spritedeck                             "python app.py"          3 months ago         Exited (137) 3 months ago                                                      asset_getter-web-1
-a0fc871b862f   spritedeck                             "bash docker/run-mir…"   3 months ago         Exited (137) 3 months ago                                                      asset_getter-mirror-1
-2cf133053187   42doji/travel_agent                    "uvicorn server:app …"   4 months ago         Exited (1) 4 months ago                                                        kind_shtern
-4f220cadd7ee   42doji/travel-agent:latest             "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        travel-agent
-05661f13621e   42doji/travel_agent                    "uvicorn server:app …"   4 months ago         Exited (1) 4 months ago                                                        quirky_aryabhata
-51b59dcafb58   42doji/travel_agent                    "uvicorn server:app …"   4 months ago         Created                                                                        trusting_lehmann
-82190cb49fd8   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        blissful_solomon
-4599a4e35022   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        trusting_nightingale
-75f89493ae27   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        eager_shannon
-a837f8b9512d   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        stoic_mendeleev
-03fe1c469e39   137897eea10f                           "python prompt_manag…"   4 months ago         Exited (0) 4 months ago                                                        unruffled_visvesvaraya
-c61b0efffaca   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        naughty_perlman
-9b6cbe27770f   137897eea10f                           "python prompt_manag…"   4 months ago         Exited (130) 4 months ago                                                      stoic_rosalind
-4d9303c47f1f   prompt-manager                         "python prompt_manag…"   4 months ago         Exited (0) 4 months ago                                                        goofy_shockley
-480590b09e6e   prompt-manager                         "python prompt_manag…"   4 months ago         Exited (0) 4 months ago                                                        gracious_black
-9db58fcd208c   396dd6d531d4                           "python prompt_manag…"   4 months ago         Exited (1) 4 months ago                                                        condescending_rhodes
+747be426a751b9b34407d08e72dcc81fcec912438672ef45f4739a18bd614e0b
+$ docker ps --filter name=workshop-web
+CONTAINER ID   IMAGE              COMMAND                  CREATED         STATUS         PORTS                    NAMES
+747be426a751   workshop-web:1.0   "/docker-entrypoint.…"   2 seconds ago   Up 2 seconds   127.0.0.1:8081->80/tcp   workshop-web-8081
+ca8603044eaa   workshop-web:1.0   "/docker-entrypoint.…"   2 seconds ago   Up 2 seconds   127.0.0.1:8080->80/tcp   workshop-web-8080
+$ curl -i -s http://127.0.0.1:8080
+HTTP/1.1 200 OK
+Server: nginx/1.30.6
+Date: Thu, 05 Nov 2026 09:58:08 GMT
+Content-Type: text/html
+Content-Length: 13
+Last-Modified: Thu, 05 Nov 2026 07:16:10 GMT
+Connection: keep-alive
+ETag: "6aec2d3a-d"
+Accept-Ranges: bytes
+
+hello, world
+$ curl -i -s http://127.0.0.1:8081
+HTTP/1.1 200 OK
+Server: nginx/1.30.6
+Date: Thu, 05 Nov 2026 09:58:08 GMT
+Content-Type: text/html
+Content-Length: 13
+Last-Modified: Thu, 05 Nov 2026 07:16:10 GMT
+Connection: keep-alive
+ETag: "6aec2d3a-d"
+Accept-Ranges: bytes
+
+hello, world
+$ docker exec workshop-web-8080 cat /usr/share/nginx/html/index.html
+hello, world
 $ docker logs workshop-web-8080
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
@@ -193,33 +81,35 @@ $ docker logs workshop-web-8080
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
 /docker-entrypoint.sh: Configuration complete; ready for start up
-2026/11/05 07:54:56 [notice] 1#1: using the "epoll" event method
-2026/11/05 07:54:56 [notice] 1#1: nginx/1.30.6
-2026/11/05 07:54:56 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) 
-2026/11/05 07:54:56 [notice] 1#1: OS: Linux 6.12.76-linuxkit
-2026/11/05 07:54:56 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2026/11/05 07:54:56 [notice] 1#1: start worker processes
-2026/11/05 07:54:56 [notice] 1#1: start worker process 30
-2026/11/05 07:54:56 [notice] 1#1: start worker process 31
-2026/11/05 07:54:56 [notice] 1#1: start worker process 32
-2026/11/05 07:54:56 [notice] 1#1: start worker process 33
-2026/11/05 07:54:56 [notice] 1#1: start worker process 34
-2026/11/05 07:54:56 [notice] 1#1: start worker process 35
-2026/11/05 07:54:56 [notice] 1#1: start worker process 36
-2026/11/05 07:54:56 [notice] 1#1: start worker process 37
-2026/11/05 07:54:56 [notice] 1#1: start worker process 38
-2026/11/05 07:54:56 [notice] 1#1: start worker process 39
-2026/11/05 07:55:05 [error] 30#30: *1 open() "/usr/share/nginx/html/studio" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /studio HTTP/1.1", host: "localhost:8080"
-172.17.0.1 - - [05/Nov/2026:07:55:05 +0000] "GET /studio HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36" "-"
-2026/11/05 07:55:06 [error] 30#30: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/studio"
-172.17.0.1 - - [05/Nov/2026:07:55:06 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost:8080/studio" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36" "-"
-172.17.0.1 - - [05/Nov/2026:07:55:12 +0000] "GET /studio HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36" "-"
-2026/11/05 07:55:12 [error] 30#30: *1 open() "/usr/share/nginx/html/studio" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /studio HTTP/1.1", host: "localhost:8080"
-172.17.0.1 - - [05/Nov/2026:07:55:33 +0000] "GET / HTTP/1.1" 200 13 "-" "curl/8.7.1" "-"
-$ docker stats --no-stream
-CONTAINER ID   NAME                           CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O         PIDS
-6426139f042a   workshop-bind                  0.00%     8.723MiB / 7.75GiB   0.11%     3.94kB / 2.61kB   0B / 12.3kB       11
-a0d1d7260358   workshop-web-8081              0.00%     8.762MiB / 7.75GiB   0.11%     1.67kB / 796B     0B / 12.3kB       11
-52ac1d01c75f   workshop-web-8080              0.00%     8.762MiB / 7.75GiB   0.11%     6.65kB / 5.28kB   0B / 12.3kB       11
-570d811bc4a3   buildx_buildkit_genre-atlas0   0.06%     132MiB / 7.75GiB     1.66%     2.51kB / 126B     91.8MB / 24.6kB   39
-cff42101bae5   genre-atlas                    0.00%     14.98MiB / 7.75GiB   0.19%     1.75kB / 126B     7.45MB / 0B       11
+2026/11/05 09:58:06 [notice] 1#1: using the "epoll" event method
+2026/11/05 09:58:06 [notice] 1#1: nginx/1.30.6
+2026/11/05 09:58:06 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) 
+2026/11/05 09:58:06 [notice] 1#1: OS: Linux 6.12.76-linuxkit
+2026/11/05 09:58:06 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2026/11/05 09:58:06 [notice] 1#1: start worker processes
+2026/11/05 09:58:06 [notice] 1#1: start worker process 30
+2026/11/05 09:58:06 [notice] 1#1: start worker process 31
+2026/11/05 09:58:06 [notice] 1#1: start worker process 32
+2026/11/05 09:58:06 [notice] 1#1: start worker process 33
+2026/11/05 09:58:06 [notice] 1#1: start worker process 34
+2026/11/05 09:58:06 [notice] 1#1: start worker process 35
+2026/11/05 09:58:06 [notice] 1#1: start worker process 36
+2026/11/05 09:58:06 [notice] 1#1: start worker process 37
+2026/11/05 09:58:06 [notice] 1#1: start worker process 38
+2026/11/05 09:58:06 [notice] 1#1: start worker process 39
+172.17.0.1 - - [05/Nov/2026:09:58:08 +0000] "GET / HTTP/1.1" 200 13 "-" "curl/8.7.1" "-"
+$ docker stats --no-stream workshop-web-8080 workshop-web-8081
+CONTAINER ID   NAME                CPU %     MEM USAGE / LIMIT    MEM %     NET I/O         BLOCK I/O     PIDS
+ca8603044eaa   workshop-web-8080   0.00%     8.961MiB / 7.75GiB   0.11%     1.67kB / 754B   0B / 12.3kB   11
+747be426a751   workshop-web-8081   0.00%     8.754MiB / 7.75GiB   0.11%     1.63kB / 754B   0B / 8.19kB   11
+$ docker stop workshop-web-8081
+workshop-web-8081
+$ docker ps -a --filter name=workshop-web-8081
+CONTAINER ID   IMAGE              COMMAND                  CREATED         STATUS                              PORTS     NAMES
+747be426a751   workshop-web:1.0   "/docker-entrypoint.…"   5 seconds ago   Exited (0) Less than a second ago             workshop-web-8081
+$ curl -s -S --max-time 3 http://127.0.0.1:8081
+curl: (7) Failed to connect to 127.0.0.1 port 8081 after 0 ms: Couldn't connect to server
+$ docker start workshop-web-8081
+workshop-web-8081
+$ curl -s http://127.0.0.1:8081
+hello, world

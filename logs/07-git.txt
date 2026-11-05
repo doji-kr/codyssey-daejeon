@@ -1,0 +1,32 @@
+$ git --version
+git version 2.39.5 (Apple Git-154)
+$ git config --list | sed -E "s/^(user\.email=).*/\1<masked>/"
+credential.helper=osxkeychain
+init.defaultbranch=main
+user.email=<masked>
+user.name=doji
+beads.role=maintainer
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
+remote.origin.url=https://github.com/doji-kr/codyssey-daejeon.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+$ git config init.defaultBranch
+main
+$ git branch --show-current
+main
+$ git remote -v
+origin	https://github.com/doji-kr/codyssey-daejeon.git (fetch)
+origin	https://github.com/doji-kr/codyssey-daejeon.git (push)
+$ git ls-remote --heads origin main
+09c825d1ba93bc7ce955df6307b1c9c860a30905	refs/heads/main
+$ gh auth status 2>&1 | grep -E "Logged in|protocol"
+  ✓ Logged in to github.com account doji-kr (keyring)
+  - Git operations protocol: https
+$ gh repo view --json nameWithOwner,visibility,url,defaultBranchRef
+{"defaultBranchRef":{"name":"main"},"nameWithOwner":"doji-kr/codyssey-daejeon","url":"https://github.com/doji-kr/codyssey-daejeon","visibility":"PUBLIC"}

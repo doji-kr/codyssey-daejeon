@@ -8,3 +8,5 @@ README.md
 compose.yaml
 .DS_Store
 .env
+scripts
+RUNBOOK.md

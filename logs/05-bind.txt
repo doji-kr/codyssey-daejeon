@@ -1,7 +1,19 @@
-$ docker run -d --name workshop-bind -p 127.0.0.1:8082:80 --mount type=bind,source=/Users/doji/codyssey-daejeon/site-live,target=/usr/share/nginx/html,readonly workshop-web:1.0
-6426139f042a81f5e66425ef2e4e68cf22e676f5aedfaf922c5c8fe4a620601b
-$ curl -s http://127.0.0.1:8082
-hello, world
+$ mkdir -p site-live
+$ cat > site-live/index.html <<"HTML"
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Bind Mount Test</title>
+</head>
+<body>
+    <h1>Bind Mount Updated, <b>**BEFORE!**</b></h1>
+    <p>Changed directly on the host.</p>
+</body>
+</html>
+HTML
+$ docker run -d --name workshop-bind -p 127.0.0.1:8082:80 --mount type=bind,source="$PWD/site-live",target=/usr/share/nginx/html,readonly workshop-web:1.0
+21e3d6cb79b248b007c114d3d86c09f8ae317c305904cebfcccedd7fd25de2b8
 $ curl -s http://127.0.0.1:8082
 <!DOCTYPE html>
 <html lang="ko">
@@ -10,7 +22,25 @@ $ curl -s http://127.0.0.1:8082
     <title>Bind Mount Test</title>
 </head>
 <body>
-    <h1>Bind Mount Updated, again!</h1>
+    <h1>Bind Mount Updated, <b>**BEFORE!**</b></h1>
     <p>Changed directly on the host.</p>
 </body>
 </html>
+$ perl -pi -e "s/BEFORE/AFTER/" site-live/index.html
+$ grep AFTER site-live/index.html
+    <h1>Bind Mount Updated, <b>**AFTER!**</b></h1>
+$ curl -s http://127.0.0.1:8082
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Bind Mount Test</title>
+</head>
+<body>
+    <h1>Bind Mount Updated, <b>**AFTER!**</b></h1>
+    <p>Changed directly on the host.</p>
+</body>
+</html>
+$ docker ps --filter name=workshop-bind --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+NAMES           STATUS         PORTS
+workshop-bind   Up 2 seconds   127.0.0.1:8082->80/tcp

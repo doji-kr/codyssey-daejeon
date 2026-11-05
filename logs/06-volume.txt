@@ -1,66 +1,25 @@
 $ docker volume create workshop-data
 workshop-data
-$ docker volume ls
+$ docker volume ls --filter name=workshop-data
 DRIVER    VOLUME NAME
-local     05ef3d5c072b37f55305974810d3df2b6123e9658f101f64d7b235f7e5286ad9
-local     316d0b5b3f998ca5ff01b09c2817635f52790bf1305af3a3e6b22a4db2612e26
-local     a38bc352e9b224b5717e387c08169a9c253b75363fa6652b8ddab881d4c5cc98
-local     a3777180f19a25a571ca296f58b945873b1b5e8988696633ade0b5b71e7014be
-local     buildx_buildkit_genre-atlas0_state
-local     d7508095ae0dba1470921ce7faf39241383042cb5efd4cc84614c1305ea9323b
 local     workshop-data
 $ docker run -d --name workshop-volume-1 --mount type=volume,source=workshop-data,target=/data ubuntu:24.04 sleep infinity
-Unable to find image 'ubuntu:24.04' locally
-24.04: Pulling from library/ubuntu
-e2d2bb84d022: Pulling fs layer
-2238dc1b4376: Download complete
-e2d2bb84d022: Download complete
-e2d2bb84d022: Pull complete
-Digest: sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
-Status: Downloaded newer image for ubuntu:24.04
-0e6520db9d21580f298d8df88610b786117faf87f942a570c282df3f2c70b042
-$ docker exec workshop-volume-1 sh -c echo\ \"Docker\ persistent\ data\!\"\ \>\ /data/hello.txt
+9db4286a57f2f64b78b2f51d8301b71fe10615d3fc3fa4a0003f9427a350b3e1
+$ docker exec workshop-volume-1 sh -c "echo Docker persistent data! > /data/hello.txt"
 $ docker exec workshop-volume-1 cat /data/hello.txt
 Docker persistent data!
 $ docker rm -f workshop-volume-1
 workshop-volume-1
-$ docker ps -a
-CONTAINER ID   IMAGE                                  COMMAND                  CREATED          STATUS                      PORTS                                              NAMES
-6426139f042a   workshop-web:1.0                       "/docker-entrypoint.…"   30 minutes ago   Up 30 minutes               127.0.0.1:8082->80/tcp                             workshop-bind
-a0d1d7260358   workshop-web:1.0                       "/docker-entrypoint.…"   31 minutes ago   Up 30 minutes               127.0.0.1:8081->80/tcp                             workshop-web-8081
-52ac1d01c75f   workshop-web:1.0                       "/docker-entrypoint.…"   32 minutes ago   Up 32 minutes               127.0.0.1:8080->80/tcp                             workshop-web-8080
-304c42614473   temporalio/temporal:latest             "temporal server sta…"   8 days ago       Exited (137) 6 days ago                                                        temporal-poc
-8e0b2e76af66   ghcr.io/danny-avila/librechat:v0.8.7   "docker-entrypoint.s…"   8 days ago       Exited (137) 6 days ago                                                        ai-infra-chat-librechat-1
-47585a04f438   mongo:8.0.20                           "docker-entrypoint.s…"   8 days ago       Exited (0) 6 days ago                                                          ai-infra-chat-mongodb-1
-8ea89e0240b5   clickhouse/clickhouse-server:26.3      "/entrypoint.sh"         9 days ago       Exited (137) 6 days ago                                                        nhx-intake-clickhouse-02c3919b8de2
-03a52c86781e   gitea/gitea:28.1.0                     "/usr/bin/entrypoint…"   2 weeks ago      Exited (255) 2 weeks ago    127.0.0.1:2222->22/tcp, 127.0.0.1:3300->3000/tcp   ai-infra-poc-gitea
-07302752e30e   clickhouse/clickhouse-server:26.3      "/entrypoint.sh"         4 weeks ago      Exited (137) 4 weeks ago                                                       nmp-intake-clickhouse-02c3919b8de2
-570d811bc4a3   moby/buildkit:buildx-stable-1          "/usr/bin/buildkitd-…"   3 months ago     Up 6 days                                                                      buildx_buildkit_genre-atlas0
-cff42101bae5   c40216da2a6c                           "/docker-entrypoint.…"   3 months ago     Up 6 days (healthy)         0.0.0.0:12835->80/tcp, [::]:12835->80/tcp          genre-atlas
-475b107b0acc   spritedeck                             "python app.py"          3 months ago     Exited (137) 3 months ago                                                      asset_getter-web-1
-a0fc871b862f   spritedeck                             "bash docker/run-mir…"   3 months ago     Exited (137) 3 months ago                                                      asset_getter-mirror-1
-2cf133053187   42doji/travel_agent                    "uvicorn server:app …"   4 months ago     Exited (1) 4 months ago                                                        kind_shtern
-4f220cadd7ee   42doji/travel-agent:latest             "uvicorn server:app …"   4 months ago     Exited (0) 4 months ago                                                        travel-agent
-05661f13621e   42doji/travel_agent                    "uvicorn server:app …"   4 months ago     Exited (1) 4 months ago                                                        quirky_aryabhata
-51b59dcafb58   42doji/travel_agent                    "uvicorn server:app …"   4 months ago     Created                                                                        trusting_lehmann
-82190cb49fd8   5b859498931a                           "uvicorn server:app …"   4 months ago     Exited (0) 4 months ago                                                        blissful_solomon
-4599a4e35022   5b859498931a                           "uvicorn server:app …"   4 months ago     Exited (0) 4 months ago                                                        trusting_nightingale
-75f89493ae27   5b859498931a                           "uvicorn server:app …"   4 months ago     Exited (0) 4 months ago                                                        eager_shannon
-a837f8b9512d   5b859498931a                           "uvicorn server:app …"   4 months ago     Exited (0) 4 months ago                                                        stoic_mendeleev
-03fe1c469e39   137897eea10f                           "python prompt_manag…"   4 months ago     Exited (0) 4 months ago                                                        unruffled_visvesvaraya
-c61b0efffaca   5b859498931a                           "uvicorn server:app …"   4 months ago     Exited (0) 4 months ago                                                        naughty_perlman
-9b6cbe27770f   137897eea10f                           "python prompt_manag…"   4 months ago     Exited (130) 4 months ago                                                      stoic_rosalind
-4d9303c47f1f   prompt-manager                         "python prompt_manag…"   4 months ago     Exited (0) 4 months ago                                                        goofy_shockley
-480590b09e6e   prompt-manager                         "python prompt_manag…"   4 months ago     Exited (0) 4 months ago                                                        gracious_black
-9db58fcd208c   396dd6d531d4                           "python prompt_manag…"   4 months ago     Exited (1) 4 months ago                                                        condescending_rhodes
+$ docker ps -a --filter name=workshop-volume
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 $ docker run -d --name workshop-volume-2 --mount type=volume,source=workshop-data,target=/data ubuntu:24.04 sleep infinity
-c882240b4a53c2a4d119a0fe5f1db2296f64427504e0de63566f9d052fa92a2f
+134db76dfcb5923cfef6155e6771f520df28d08103b34f50c39fe120349c1e21
 $ docker exec workshop-volume-2 cat /data/hello.txt
 Docker persistent data!
 $ docker volume inspect workshop-data
 [
     {
-        "CreatedAt": "2026-11-05T08:21:02Z",
+        "CreatedAt": "2026-11-05T09:58:15Z",
         "Driver": "local",
         "Labels": null,
         "Mountpoint": "/var/lib/docker/volumes/workshop-data/_data",

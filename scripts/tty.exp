@@ -1,0 +1,30 @@
+#!/usr/bin/expect -f
+# 사용법: expect scripts/tty.exp '<실행할 명령>' '<입력1>' '<입력2>' ...
+# 실제 TTY에서 대화형 명령을 실행하고, 프롬프트(# )가 나올 때마다 입력을 하나씩 보낸다.
+# 입력 '^P^Q'는 Ctrl+P, Ctrl+Q(컨테이너를 유지한 채 attach 해제)로 보낸다.
+set timeout 20
+set command [lindex $argv 0]
+set ready 0
+spawn {*}$command
+
+# attach는 프롬프트를 다시 출력하지 않으므로 Enter로 불러낸 뒤 출력이 멈출 때까지 기다린다.
+if {[string match "docker attach*" $command]} {
+    after 1000
+    send "\r"
+    after 1000
+    expect -re {# $}
+    set ready 1
+}
+
+foreach input [lrange $argv 1 end] {
+    if {!$ready} {
+        expect -re {# $}
+    }
+    set ready 0
+    if {$input eq "^P^Q"} {
+        send "\x10\x11"
+    } else {
+        send "$input\r"
+    }
+}
+expect eof
