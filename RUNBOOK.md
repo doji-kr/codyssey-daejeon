@@ -272,7 +272,8 @@ check "이메일 마스킹" '! grep -Eq "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]
 | `evidence/web-8081.png` | 주소창에 직접 입력한 `http://127.0.0.1:8081` |
 | `evidence/bind-after.png` | `http://127.0.0.1:8082`의 현재 화면 (`AFTER`) |
 | `evidence/bind-before.png` | 아래 명령으로 되돌린 뒤 새로고침한 화면 (`BEFORE`) |
-| `evidence/vscode-github.png` | VS Code 왼쪽 아래 계정 메뉴의 GitHub 로그인과 Source Control의 저장소가 함께 보이는 화면 |
+| `evidence/vscode-github.png` | VS Code 왼쪽 아래 계정 메뉴의 GitHub 로그인 화면 |
+| `evidence/vscode-github2.png` | VS Code Source Control에 저장소가 연결된 화면 |
 
 `BEFORE` 화면은 다음 명령으로 만들고, 캡처 후 다시 `AFTER`로 되돌립니다.
 

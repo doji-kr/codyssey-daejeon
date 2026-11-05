@@ -33,7 +33,7 @@ NGINX 웹 서버를 커스텀 Docker 이미지로 만들고,
 - [x] 바인드 마운트 변경 반영
 - [x] Docker 볼륨 데이터 영속성
 - [x] Git 설정 및 GitHub 저장소 연동
-- [ ] VS Code GitHub 로그인 화면 캡처
+- [x] VS Code GitHub 로그인 화면 캡처
 - [x] 트러블슈팅 2건 이상
 
 ## 4. 프로젝트 구성
@@ -193,7 +193,13 @@ $ gh repo view --json nameWithOwner,visibility,url,defaultBranchRef
 {"defaultBranchRef":{"name":"main"},"nameWithOwner":"doji-kr/codyssey-daejeon","url":"https://github.com/doji-kr/codyssey-daejeon","visibility":"PUBLIC"}
 ```
 
-![GitHub 연동](evidence/vscode-github.png)
+VS Code 계정 메뉴에 GitHub 계정이 로그인되어 있습니다.
+
+![VS Code GitHub 로그인](evidence/vscode-github.png)
+
+VS Code Source Control에 저장소가 연결되어 있고, 저장소 게시 화면에서 같은 이름의 GitHub 저장소 `doji-kr/codyssey-daejeon`을 인식합니다.
+
+![VS Code 저장소 연동](evidence/vscode-github2.png)
 
 ## 7. 트러블슈팅
 
