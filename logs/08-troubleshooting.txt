@@ -1,0 +1,65 @@
+$ curl -i http://127.0.0.1:8099
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (7) Failed to connect to 127.0.0.1 port 8099 after 0 ms: Couldn't connect to server
+$ docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS                PORTS                                       NAMES
+c882240b4a53   ubuntu:24.04                    "sleep infinity"         6 minutes ago    Up 6 minutes                                                      workshop-volume-2
+6426139f042a   workshop-web:1.0                "/docker-entrypoint.…"   36 minutes ago   Up 36 minutes         127.0.0.1:8082->80/tcp                      workshop-bind
+a0d1d7260358   workshop-web:1.0                "/docker-entrypoint.…"   37 minutes ago   Up 37 minutes         127.0.0.1:8081->80/tcp                      workshop-web-8081
+52ac1d01c75f   workshop-web:1.0                "/docker-entrypoint.…"   38 minutes ago   Up 38 minutes         127.0.0.1:8080->80/tcp                      workshop-web-8080
+570d811bc4a3   moby/buildkit:buildx-stable-1   "/usr/bin/buildkitd-…"   3 months ago     Up 6 days                                                         buildx_buildkit_genre-atlas0
+cff42101bae5   c40216da2a6c                    "/docker-entrypoint.…"   3 months ago     Up 6 days (healthy)   0.0.0.0:12835->80/tcp, [::]:12835->80/tcp   genre-atlas
+$ docker run -d --name workshop-debug-port -p 127.0.0.1:8099:80 workshop-web:1.0
+90bab7511cda40149601f0117abf1ba51585614a055f2fb36c8d6334f80507da
+$ curl -i http://127.0.0.1:8099
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    13  100    13    0     0   2732      0 --:--:-- --:--:-- --:--:--  3250
+HTTP/1.1 200 OK
+Server: nginx/1.30.6
+Date: Thu, 05 Nov 2026 08:34:39 GMT
+Content-Type: text/html
+Content-Length: 13
+Last-Modified: Thu, 05 Nov 2026 07:16:10 GMT
+Connection: keep-alive
+ETag: "6aec2d3a-d"
+Accept-Ranges: bytes
+
+hello, world
+$ docker run -d --name workshop-web-8080 workshop-web:1.0
+docker: Error response from daemon: Conflict. The container name "/workshop-web-8080" is already in use by container "52ac1d01c75fbf4ee50083b86585864af833406b386a11e6a09d3bfaf64b2031". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+$ docker ps -a
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED              STATUS                      PORTS                                              NAMES
+90bab7511cda   workshop-web:1.0                       "/docker-entrypoint.…"   About a minute ago   Up About a minute           127.0.0.1:8099->80/tcp                             workshop-debug-port
+c882240b4a53   ubuntu:24.04                           "sleep infinity"         7 minutes ago        Up 7 minutes                                                                   workshop-volume-2
+6426139f042a   workshop-web:1.0                       "/docker-entrypoint.…"   38 minutes ago       Up 38 minutes               127.0.0.1:8082->80/tcp                             workshop-bind
+a0d1d7260358   workshop-web:1.0                       "/docker-entrypoint.…"   38 minutes ago       Up 38 minutes               127.0.0.1:8081->80/tcp                             workshop-web-8081
+52ac1d01c75f   workshop-web:1.0                       "/docker-entrypoint.…"   39 minutes ago       Up 39 minutes               127.0.0.1:8080->80/tcp                             workshop-web-8080
+304c42614473   temporalio/temporal:latest             "temporal server sta…"   8 days ago           Exited (137) 6 days ago                                                        temporal-poc
+8e0b2e76af66   ghcr.io/danny-avila/librechat:v0.8.7   "docker-entrypoint.s…"   8 days ago           Exited (137) 6 days ago                                                        ai-infra-chat-librechat-1
+47585a04f438   mongo:8.0.20                           "docker-entrypoint.s…"   8 days ago           Exited (0) 6 days ago                                                          ai-infra-chat-mongodb-1
+8ea89e0240b5   clickhouse/clickhouse-server:26.3      "/entrypoint.sh"         9 days ago           Exited (137) 6 days ago                                                        nhx-intake-clickhouse-02c3919b8de2
+03a52c86781e   gitea/gitea:28.1.0                     "/usr/bin/entrypoint…"   2 weeks ago          Exited (255) 2 weeks ago    127.0.0.1:2222->22/tcp, 127.0.0.1:3300->3000/tcp   ai-infra-poc-gitea
+07302752e30e   clickhouse/clickhouse-server:26.3      "/entrypoint.sh"         4 weeks ago          Exited (137) 4 weeks ago                                                       nmp-intake-clickhouse-02c3919b8de2
+570d811bc4a3   moby/buildkit:buildx-stable-1          "/usr/bin/buildkitd-…"   3 months ago         Up 6 days                                                                      buildx_buildkit_genre-atlas0
+cff42101bae5   c40216da2a6c                           "/docker-entrypoint.…"   3 months ago         Up 6 days (healthy)         0.0.0.0:12835->80/tcp, [::]:12835->80/tcp          genre-atlas
+475b107b0acc   spritedeck                             "python app.py"          3 months ago         Exited (137) 3 months ago                                                      asset_getter-web-1
+a0fc871b862f   spritedeck                             "bash docker/run-mir…"   3 months ago         Exited (137) 3 months ago                                                      asset_getter-mirror-1
+2cf133053187   42doji/travel_agent                    "uvicorn server:app …"   4 months ago         Exited (1) 4 months ago                                                        kind_shtern
+4f220cadd7ee   42doji/travel-agent:latest             "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        travel-agent
+05661f13621e   42doji/travel_agent                    "uvicorn server:app …"   4 months ago         Exited (1) 4 months ago                                                        quirky_aryabhata
+51b59dcafb58   42doji/travel_agent                    "uvicorn server:app …"   4 months ago         Created                                                                        trusting_lehmann
+82190cb49fd8   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        blissful_solomon
+4599a4e35022   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        trusting_nightingale
+75f89493ae27   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        eager_shannon
+a837f8b9512d   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        stoic_mendeleev
+03fe1c469e39   137897eea10f                           "python prompt_manag…"   4 months ago         Exited (0) 4 months ago                                                        unruffled_visvesvaraya
+c61b0efffaca   5b859498931a                           "uvicorn server:app …"   4 months ago         Exited (0) 4 months ago                                                        naughty_perlman
+9b6cbe27770f   137897eea10f                           "python prompt_manag…"   4 months ago         Exited (130) 4 months ago                                                      stoic_rosalind
+4d9303c47f1f   prompt-manager                         "python prompt_manag…"   4 months ago         Exited (0) 4 months ago                                                        goofy_shockley
+480590b09e6e   prompt-manager                         "python prompt_manag…"   4 months ago         Exited (0) 4 months ago                                                        gracious_black
+9db58fcd208c   396dd6d531d4                           "python prompt_manag…"   4 months ago         Exited (1) 4 months ago                                                        condescending_rhodes
