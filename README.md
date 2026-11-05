@@ -110,6 +110,8 @@ $ ls -ld practice/demo
 drwx------@ 4 doji  staff  128 Nov  5 18:57 practice/demo
 ```
 
+`600`과 `700`으로 소유자 외의 접근을 막아 권한 표기가 바뀌는 것을 확인한 뒤, 일반적인 값인 `644`와 `755`로 복원했습니다.
+
 ### Docker 점검
 
 ```text
@@ -195,10 +197,9 @@ $ gh repo view --json nameWithOwner,visibility,url,defaultBranchRef
 
 ## 7. 트러블슈팅
 
-전체 출력은 [로그](logs/08-troubleshooting.txt)에 있습니다.
-
 ### 사례 1: 컨테이너가 실행 중인데 접속되지 않음
 
+- 로그: [`logs/08-troubleshooting.txt`](logs/08-troubleshooting.txt)의 첫 번째 `docker run`부터 `curl -i -s http://127.0.0.1:8099`까지
 - 문제: `curl`이 `Failed to connect to 127.0.0.1 port 8099`로 실패했습니다.
 - 원인 가설: 웹 서버가 죽었거나, 호스트 포트가 컨테이너에 연결되지 않았습니다.
 - 확인 명령: `docker ps`, `docker port workshop-debug-port`, `docker exec workshop-debug-port wget -qO- http://127.0.0.1:80`
@@ -208,6 +209,7 @@ $ gh repo view --json nameWithOwner,visibility,url,defaultBranchRef
 
 ### 사례 2: 컨테이너 이름 충돌
 
+- 로그: [`logs/08-troubleshooting.txt`](logs/08-troubleshooting.txt)의 `Conflict` 오류부터 `curl -s http://127.0.0.1:8100`까지
 - 문제: `docker run`이 `Conflict. The container name "/workshop-debug-port" is already in use`로 실패했습니다.
 - 원인 가설: 같은 이름의 컨테이너가 이미 있습니다.
 - 확인 명령: `docker ps -a --filter name=workshop-debug-port`
@@ -236,6 +238,8 @@ $ gh repo view --json nameWithOwner,visibility,url,defaultBranchRef
 
 컨테이너는 격리된 네트워크를 쓰므로 내부 포트에 호스트에서 바로 접속할 수 없습니다. `-p 8080:80`은 호스트의 8080을 컨테이너의 80으로 연결합니다. 호스트 포트만 다르게 주면 같은 이미지를 동시에 여러 개 실행할 수 있습니다. 사례 1이 `-p`가 없을 때의 결과입니다.
 
+호스트 주소를 지정한 `-p 127.0.0.1:8080:80`은 이 컴퓨터에서만 접속할 수 있습니다. 주소를 생략한 `-p 8080:80`은 모든 네트워크 인터페이스에 열려 방화벽이 막지 않으면 같은 네트워크의 다른 기기에서도 접속할 수 있습니다.
+
 ### 바인드 마운트와 볼륨의 차이
 
 바인드 마운트는 호스트의 특정 폴더를 컨테이너에 연결하므로 개발 중 수정 내용을 바로 확인할 때 적합합니다. 볼륨은 Docker가 관리하는 저장 공간으로 컨테이너의 수명과 분리되므로 데이터 보존에 적합합니다. 컨테이너를 삭제해도 `workshop-data`의 파일은 남았습니다.
@@ -249,5 +253,5 @@ Git은 내 컴퓨터에서 변경 이력을 관리하는 버전 관리 도구입
 - 전체 절차와 기대 결과는 [RUNBOOK.md](RUNBOOK.md)에 있습니다. 컨테이너 ID, 시각, 크기는 실행마다 달라집니다.
 - Docker Desktop이 실행 중이어야 합니다.
 - 사용 중인 포트라면 다른 호스트 포트를 지정합니다.
-- 바인드 마운트는 `$PWD`를 사용하므로 저장소 위치에 묶이지 않습니다.
+- 바인드 마운트는 `$PWD`를 사용하므로 저장소 위치에 묶이지 않습니다. 다만 저장소 경로가 Docker Desktop의 File Sharing 범위 안에 있어야 합니다.
 - 토큰, 개인키, 비밀번호는 커밋하지 않습니다.
