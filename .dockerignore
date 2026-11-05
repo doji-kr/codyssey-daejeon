@@ -1,0 +1,10 @@
+.git
+.gitignore
+site-live
+practice
+logs
+evidence
+README.md
+compose.yaml
+.DS_Store
+.env

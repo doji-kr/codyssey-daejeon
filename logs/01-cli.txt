@@ -1,0 +1,19 @@
+$ pwd
+/Users/doji/codyssey-daejeon
+$ ls -la
+total 40
+drwxr-xr-x@ 13 doji  staff   416 Nov  5 16:30 .
+drwxr-x---+ 79 doji  staff  2528 Nov  5 16:35 ..
+-rw-r--r--@  1 doji  staff    87 Nov  5 16:29 .dockerignore
+drwxr-xr-x@ 12 doji  staff   384 Nov  5 15:32 .git
+-rw-r--r--@  1 doji  staff    57 Nov  5 16:30 .gitignore
+-rw-r--r--@  1 doji  staff   127 Nov  5 16:29 Dockerfile
+-rw-r--r--@  1 doji  staff     5 Nov  5 14:43 README.md
+-rw-r--r--@  1 doji  staff    43 Nov  5 15:29 codyssey-daejeon.code-workspace
+drwxr-xr-x@  2 doji  staff    64 Nov  5 16:17 evidence
+drwxr-xr-x@  3 doji  staff    96 Nov  5 16:35 logs
+drwxr-xr-x@  3 doji  staff    96 Nov  5 16:22 practice
+drwxr-xr-x@  3 doji  staff    96 Nov  5 16:15 site
+drwxr-xr-x@  2 doji  staff    64 Nov  5 16:17 site-live
+$ cat practice/demo/note.txt
+Hello, Linux CLI

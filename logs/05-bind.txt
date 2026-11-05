@@ -1,0 +1,16 @@
+$ docker run -d --name workshop-bind -p 127.0.0.1:8082:80 --mount type=bind,source=/Users/doji/codyssey-daejeon/site-live,target=/usr/share/nginx/html,readonly workshop-web:1.0
+6426139f042a81f5e66425ef2e4e68cf22e676f5aedfaf922c5c8fe4a620601b
+$ curl -s http://127.0.0.1:8082
+hello, world
+$ curl -s http://127.0.0.1:8082
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Bind Mount Test</title>
+</head>
+<body>
+    <h1>Bind Mount Updated, again!</h1>
+    <p>Changed directly on the host.</p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+$ chmod 600 practice/demo/note.txt
+$ ls -l practice/demo/note.txt
+-rw-------@ 1 doji  staff  17 Nov  5 16:22 practice/demo/note.txt
+$ chmod 644 practice/demo/note.txt
+$ ls -l practice/demo/note.txt
+-rw-r--r--@ 1 doji  staff  17 Nov  5 16:22 practice/demo/note.txt
+$ chmod 700 practice/demo
+$ ls -ld practice/demo
+drwx------@ 4 doji  staff  128 Nov  5 16:23 practice/demo
+$ chmod 755 practice/demo
+$ ls -ld practice/demo
+drwxr-xr-x@ 4 doji  staff  128 Nov  5 16:23 practice/demo

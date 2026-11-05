@@ -1,0 +1,193 @@
+$ docker --version
+Docker version 29.6.1, build 8900f1d330
+$ docker info
+Client: Docker Engine - Community
+ Version:    29.6.1
+ Context:    desktop-linux
+ Debug Mode: false
+ Plugins:
+  agent: Docker AI Agent Runner (Docker Inc.)
+    Version:  v1.79.0
+    Path:     /Users/doji/.docker/cli-plugins/docker-agent
+  ai: Docker AI Agent - Ask Gordon (Docker Inc.)
+    Version:  v1.27.0
+    Path:     /Users/doji/.docker/cli-plugins/docker-ai
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.35.0-desktop.2
+    Path:     /Users/doji/.docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.3.0
+    Path:     /Users/doji/.docker/cli-plugins/docker-compose
+  debug: Get a shell into any image or container (Docker Inc.)
+    Version:  0.0.47
+    Path:     /Users/doji/.docker/cli-plugins/docker-debug
+  desktop: Docker Desktop commands (Docker Inc.)
+    Version:  v0.4.1
+    Path:     /Users/doji/.docker/cli-plugins/docker-desktop
+  dhi: CLI for managing Docker Hardened Images (Docker Inc.)
+    Version:  v0.0.5
+    Path:     /Users/doji/.docker/cli-plugins/docker-dhi
+  extension: Manages Docker extensions (Docker Inc.)
+    Version:  v0.2.31
+    Path:     /Users/doji/.docker/cli-plugins/docker-extension
+  init: Creates Docker-related starter files for your project (Docker Inc.)
+    Version:  v1.4.0
+    Path:     /Users/doji/.docker/cli-plugins/docker-init
+  mcp: Docker MCP Plugin (Docker Inc.)
+    Version:  v0.42.2
+    Path:     /Users/doji/.docker/cli-plugins/docker-mcp
+  model: Docker Model Runner (Docker Inc.)
+    Version:  v1.2.4
+    Path:     /Users/doji/.docker/cli-plugins/docker-model
+  offload: Docker Offload (Docker Inc.)
+    Version:  v0.6.6
+    Path:     /Users/doji/.docker/cli-plugins/docker-offload
+  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)
+    Version:  v0.1.5
+    Path:     /Users/doji/.docker/cli-plugins/docker-pass
+  sandbox: "docker sandbox" is deprecated, use Docker Sandboxes instead (Docker Inc.)
+    Version:  v0.13.0
+    Path:     /Users/doji/.docker/cli-plugins/docker-sandbox
+  scout: Docker Scout (Docker Inc.)
+    Version:  v1.23.1
+    Path:     /Users/doji/.docker/cli-plugins/docker-scout
+
+Server:
+ Containers: 24
+  Running: 2
+  Paused: 0
+  Stopped: 22
+ Images: 27
+ Server Version: 29.6.1
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: e53c7c1516c3b2bff98eb76f1f4117477e6f4e66
+ runc version: v1.3.6-0-g491b69ba
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.12.76-linuxkit
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: aarch64
+ CPUs: 10
+ Total Memory: 7.75GiB
+ Name: docker-desktop
+ ID: fb2e614d-9dce-4946-a959-6478d1c27ca0
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=unix:///Users/doji/Library/Containers/com.docker.docker/Data/docker-cli.sock
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+
+$ docker images
+IMAGE                                                                                                   ID             DISK USAGE   CONTENT SIZE   EXTRA
+42doji/sojaeham:latest                                                                                  df8c57075c0e        311MB         76.8MB        
+42doji/sprite_getter:latest                                                                             7f6bfd1bd896        340MB         78.1MB        
+42doji/spritedeck:latest                                                                                1a331bc412d7        340MB         78.1MB        
+42doji/travel-agent:latest                                                                              607310c34430        281MB         62.1MB   U    
+42doji/travel_agent:latest                                                                              5ae4075289cd        281MB         62.1MB   U    
+barichello/godot-ci:4.7.2                                                                               cdcca31e9194        7.8GB         2.58GB        
+clickhouse/clickhouse-server:26.3                                                                       843f94faf48c       1.11GB          252MB   U    
+docker:28-cli                                                                                           625d9431a9f5        291MB         75.7MB        
+dolthub/dolt-sql-server@sha256:baf9449a54dc6572dc5d688386e6f45ecb9f76e5bc4869be429f450b90ffecb0         baf9449a54dc        441MB          106MB        
+dotteda/prompt-manager:latest                                                                           29b7709e567f        233MB         50.5MB   U    
+ghcr.io/danny-avila/librechat@sha256:c5db3331b845e1f289f8d04c0c77936c4bbe372f76730a804abc1c37e44d23a9   c5db3331b845       3.79GB          865MB   U    
+ghcr.io/ferretdb/ferretdb:2.7.0                                                                         5706414241eb       53.6MB         17.7MB        
+ghcr.io/openhands/agent-canvas:1.27.1                                                                   91b7a217dcbe       5.37GB         1.37GB        
+gitea.doji.synology.me/jitendo/genre-atlas:2026-07-25                                                   c40216da2a6c       77.4MB         22.2MB   U    
+gitea.doji.synology.me/jitendo/genre-atlas:latest                                                       f5d9e44f0d05        153MB         43.5MB        
+gitea.doji.synology.me/jitendo/spritedeck:latest                                                        1a83c4cd7ea1        340MB         78.1MB        
+gitea/gitea:28.1.0                                                                                      f505a0d3a413        262MB         69.2MB   U    
+lunch-party:latest                                                                                      b6474657988e        931MB          204MB        
+moby/buildkit:buildx-stable-1                                                                           2f5adac4ecd1        348MB          105MB   U    
+mongo@sha256:098862b1339f031900ca66cf8fef799e616d6324fa41b9a263f2ec899552c1ef                           098862b1339f       1.26GB          302MB   U    
+nginx@sha256:959ae6b898852db82e5b29b929388e59914f42be0a8f4d44c89a4c1f53b49208                           959ae6b89885        101MB         28.5MB        
+prompt-manager:latest                                                                                   73bd69858846        233MB         50.5MB   U    
+rr-mame:0.264                                                                                           e554a3af23b5       1.48GB          326MB        
+spritedeck:latest                                                                                       980299389998        340MB         78.1MB   U    
+temporalio/temporal:latest                                                                              ad4c82c97bd1        204MB         45.8MB   U    
+$ docker ps -a
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED        STATUS                      PORTS                                              NAMES
+304c42614473   temporalio/temporal:latest             "temporal server sta…"   8 days ago     Exited (137) 6 days ago                                                        temporal-poc
+8e0b2e76af66   ghcr.io/danny-avila/librechat:v0.8.7   "docker-entrypoint.s…"   8 days ago     Exited (137) 6 days ago                                                        ai-infra-chat-librechat-1
+47585a04f438   mongo:8.0.20                           "docker-entrypoint.s…"   8 days ago     Exited (0) 6 days ago                                                          ai-infra-chat-mongodb-1
+8ea89e0240b5   clickhouse/clickhouse-server:26.3      "/entrypoint.sh"         9 days ago     Exited (137) 6 days ago                                                        nhx-intake-clickhouse-02c3919b8de2
+03a52c86781e   gitea/gitea:28.1.0                     "/usr/bin/entrypoint…"   2 weeks ago    Exited (255) 2 weeks ago    127.0.0.1:2222->22/tcp, 127.0.0.1:3300->3000/tcp   ai-infra-poc-gitea
+07302752e30e   clickhouse/clickhouse-server:26.3      "/entrypoint.sh"         4 weeks ago    Exited (137) 4 weeks ago                                                       nmp-intake-clickhouse-02c3919b8de2
+570d811bc4a3   moby/buildkit:buildx-stable-1          "/usr/bin/buildkitd-…"   3 months ago   Up 6 days                                                                      buildx_buildkit_genre-atlas0
+cff42101bae5   c40216da2a6c                           "/docker-entrypoint.…"   3 months ago   Up 6 days (healthy)         0.0.0.0:12835->80/tcp, [::]:12835->80/tcp          genre-atlas
+475b107b0acc   spritedeck                             "python app.py"          3 months ago   Exited (137) 3 months ago                                                      asset_getter-web-1
+a0fc871b862f   spritedeck                             "bash docker/run-mir…"   3 months ago   Exited (137) 3 months ago                                                      asset_getter-mirror-1
+2cf133053187   42doji/travel_agent                    "uvicorn server:app …"   4 months ago   Exited (1) 4 months ago                                                        kind_shtern
+4f220cadd7ee   42doji/travel-agent:latest             "uvicorn server:app …"   4 months ago   Exited (0) 4 months ago                                                        travel-agent
+05661f13621e   42doji/travel_agent                    "uvicorn server:app …"   4 months ago   Exited (1) 4 months ago                                                        quirky_aryabhata
+51b59dcafb58   42doji/travel_agent                    "uvicorn server:app …"   4 months ago   Created                                                                        trusting_lehmann
+82190cb49fd8   5b859498931a                           "uvicorn server:app …"   4 months ago   Exited (0) 4 months ago                                                        blissful_solomon
+4599a4e35022   5b859498931a                           "uvicorn server:app …"   4 months ago   Exited (0) 4 months ago                                                        trusting_nightingale
+75f89493ae27   5b859498931a                           "uvicorn server:app …"   4 months ago   Exited (0) 4 months ago                                                        eager_shannon
+a837f8b9512d   5b859498931a                           "uvicorn server:app …"   4 months ago   Exited (0) 4 months ago                                                        stoic_mendeleev
+03fe1c469e39   137897eea10f                           "python prompt_manag…"   4 months ago   Exited (0) 4 months ago                                                        unruffled_visvesvaraya
+c61b0efffaca   5b859498931a                           "uvicorn server:app …"   4 months ago   Exited (0) 4 months ago                                                        naughty_perlman
+9b6cbe27770f   137897eea10f                           "python prompt_manag…"   4 months ago   Exited (130) 4 months ago                                                      stoic_rosalind
+4d9303c47f1f   prompt-manager                         "python prompt_manag…"   4 months ago   Exited (0) 4 months ago                                                        goofy_shockley
+480590b09e6e   prompt-manager                         "python prompt_manag…"   4 months ago   Exited (0) 4 months ago                                                        gracious_black
+9db58fcd208c   396dd6d531d4                           "python prompt_manag…"   4 months ago   Exited (1) 4 months ago                                                        condescending_rhodes
+$ docker run --rm hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+58dee6a49ef1: Pulling fs layer
+58dee6a49ef1: Download complete
+58dee6a49ef1: Pull complete
+c3bdf82c34d1: Download complete
+Digest: sha256:c567b231f65614688711a75f31518a064258a51d442117a3e771a3a8fdba78ef
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (arm64v8)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
